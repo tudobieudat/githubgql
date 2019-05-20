@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios'
 import './App.css';
+import Organization from './components/Organization';
 
 const access_token = process.env.REACT_APP_GITHUB_PERSONAL_ACCESS_TOKEN;
 const axiosGitHubGraphQL = axios.create({
@@ -50,18 +51,20 @@ class App extends Component {
 
   onSubmit = (event) => {
     // fetch data
-    //this.setState({ path: event.target.value });
     event.preventDefault();
   };
 
   onFetchFromGitHub = () => {
     axiosGitHubGraphQL
     .post('', { query: GET_ISSUES_OF_REPOSITORY })
-    .then(result => console.log(result))
+    .then(result => this.setState( () => ({
+      organization: result.data.data.organization,
+      errors: result.data.errors
+    })))
   };
 
   render(){
-    const { path, organization } = this.state;
+    const { path, organization, errors } = this.state;
 
     return (
       <div className="App">
@@ -80,7 +83,11 @@ class App extends Component {
           <button type="submit">Search</button>
           <hr />
           {/* Here comes the result */}
-
+          {organization ? (
+            <Organization organization={organization} errors={errors} />
+          ):(
+            <p>No information yet...</p>
+          )}
         </form>
       </div>
     );
