@@ -4,7 +4,7 @@ import './App.css';
 import Organization from './components/Organization';
 
 const access_token = process.env.REACT_APP_GITHUB_PERSONAL_ACCESS_TOKEN;
-const axiosGitHubGraphQL = axios.create({
+const gitHubService = axios.create({
   baseURL: 'https://api.github.com/graphql',
   headers: {
     Authorization: `bearer ${access_token}`
@@ -38,7 +38,7 @@ const GET_ISSUES_OF_REPOSITORY = `
 const getIssuesOfRepository = path => {
   const [orgName, repoName] = path.split('/');
 
-  return axiosGitHubGraphQL.post('', {
+  return gitHubService.post('', {
     query: GET_ISSUES_OF_REPOSITORY,
     variables: { orgName, repoName, numOfLastIssues: NUM_OF_LAST_ISSUES },
   });
@@ -58,7 +58,7 @@ class App extends Component {
 
   componentDidMount() {
     // fetch data
-    this.onFetchFromGitHub(this.state.path);
+    this.onGitHubFetch(this.state.path);
   }
 
   onChange = (event) => {
@@ -66,14 +66,13 @@ class App extends Component {
   };
 
   onSubmit = (event) => {
-    // fetch data
-    this.onFetchFromGitHub(this.state.path);
     event.preventDefault();
+    this.onGitHubFetch(this.state.path);    
   };
 
-  onFetchFromGitHub = (path) => {
+  onGitHubFetch = (path) => {
     getIssuesOfRepository(path).then(queryResult =>
-      this.setState(resolveIssuesQuery(queryResult)),
+      this.setState(resolveIssuesQuery(queryResult))
     );
   };
 
