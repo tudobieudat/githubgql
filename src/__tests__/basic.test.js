@@ -3,14 +3,42 @@ import ReactDOM from 'react-dom';
 import Organization from '../components/Organization';
 import { exportAllDeclaration } from '@babel/types';
 
-it("basic test", () => {
-    const organization = {
-        name: "Road to React",
-        url: "https://r2r.org"
-    }
+it("repository test", () => {
+    const testData = {
+        "data": {
+          "organization": {
+            "name": "The Road to learn React",
+            "url": "https://github.com/the-road-to-learn-react",
+            "repository": {
+              "name": "the-road-to-learn-react",
+              "url": "https://github.com/the-road-to-learn-react/the-road-to-learn-react",
+              "issues": {
+                "edges": [
+                  {
+                    "node": {
+                      "id": "MDU6SXNzdWU0Mzc5MTIwMzI=",
+                      "title": "Link redirection is no longer correct.",
+                      "url": "https://github.com/the-road-to-learn-react/the-road-to-learn-react/issues/198"
+                    }
+                  },
+                  {
+                    "node": {
+                      "id": "MDU6SXNzdWU0NDIyNzgzODI=",
+                      "title": " access a state object ",
+                      "url": "https://github.com/the-road-to-learn-react/the-road-to-learn-react/issues/202"
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
 
+    //console.log(testData.data.organization);
+    
     const div = document.createElement('div');
-    ReactDOM.render(<Organization organization={organization} />, div);
+    ReactDOM.render(<Organization organization={testData.data.organization} />, div);
     ReactDOM.unmountComponentAtNode(div);
 });
 
