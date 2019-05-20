@@ -11,15 +11,17 @@ const axiosGitHubGraphQL = axios.create({
   },
 });
 
+const NUM_OF_LAST_ISSUES = 20;
+
 const GET_ISSUES_OF_REPOSITORY = `
-  query ($organization: String!, $repository: String!) {
-    organization(login: $organization) {
+  query ($orgName: String!, $repoName: String!, $numOfLastIssues: Int!) {
+    organization(login: $orgName) {
       name
       url
-      repository(name: $repository) {
+      repository(name: $repoName) {
         name
         url
-        issues(last: 5) {
+        issues(last: $numOfLastIssues) {
           edges {
             node {
               id
@@ -34,11 +36,11 @@ const GET_ISSUES_OF_REPOSITORY = `
 `;
 
 const getIssuesOfRepository = path => {
-  const [organization, repository] = path.split('/');
+  const [orgName, repoName] = path.split('/');
 
   return axiosGitHubGraphQL.post('', {
     query: GET_ISSUES_OF_REPOSITORY,
-    variables: { organization, repository },
+    variables: { orgName, repoName, numOfLastIssues: NUM_OF_LAST_ISSUES },
   });
 };
 
