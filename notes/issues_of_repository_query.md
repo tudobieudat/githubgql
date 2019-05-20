@@ -1,5 +1,5 @@
-query issues_of_repository($login: String!, $repoName: String!, $numOfLastIssues: Int!) {
-  organization(login: $login) {
+query ($orgName: String!, $repoName: String!, $numOfLastIssues: Int!) {
+  organization(login: $orgName) {
     name
     url
     repository(name: $repoName) {
@@ -19,7 +19,7 @@ query issues_of_repository($login: String!, $repoName: String!, $numOfLastIssues
 }
 
 { 
-  "login": "the-road-to-learn-react",
+  "orgName": "the-road-to-learn-react",
   "repoName": "the-road-to-learn-react",
   "numOfLastIssues": 2
 }
