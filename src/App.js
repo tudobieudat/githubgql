@@ -21,13 +21,13 @@ const ISSUES_OF_REPOSITORY_QUERY = `
       repository(name: $repository) {
         name
         url
-        issues(first: 5, after: $cursor, states: [OPEN]) {
+        issues(first: 20, after: $cursor, states: [OPEN]) {
           edges {
             node {
               id
               title
               url
-              reactions(last: 3) {
+              reactions(last: 5) {
                 edges {
                   node {
                     id
@@ -88,7 +88,7 @@ const resolveIssuesQuery = (queryResult, cursor) => state => {
 
 class App extends Component {
   state = {
-    path: 'facebook/react',
+    path: 'facebook/react-native-website',
     organization: null,
     errors: null,
   };
