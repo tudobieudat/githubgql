@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Organization from './components/Organization'
 
-const TITLE = 'GitHub GraphQL API';
+const APP_TITLE = 'GitHub GraphQL API';
 
 const gitHubService = axios.create({
   baseURL: 'https://api.github.com/graphql',
@@ -126,7 +126,7 @@ class App extends Component {
 
     return (
       <div>
-        <h1>{TITLE}</h1>
+        <h1>{APP_TITLE}</h1>
 
         <form onSubmit={this.onSubmit}>
           <label htmlFor="url">

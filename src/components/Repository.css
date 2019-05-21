@@ -12,9 +12,9 @@ list-style-type: none;
 }
 
 .Repository > ul > li {
-    border: dashed gray 1px;
+    border: dashed #999999 1px;
     border-radius: 0.3em;
-    margin: 0.3em;
+    margin: 0.5em;
     padding: 0.3em;    
 }
 
