@@ -1,0 +1,33 @@
+#reactionContainer ul
+{
+margin: 0;
+padding: 0;
+list-style-type: none;
+}
+
+.Repository ul {
+    list-style: none;
+    margin-left: 0;
+    list-style-position: outside;
+}
+
+.Repository > ul > li {
+    border: dashed gray 1px;
+    border-radius: 0.3em;
+    margin: 0.3em;
+    padding: 0.3em;    
+}
+
+#reaction ul {
+    margin-left: 0;
+    padding: 0;
+    float: left;
+    list-style-type: none;
+}
+
+#reaction li {
+    display: inline;
+    list-style: none;
+    list-style-type: none;
+    padding-right: 10px;
+}

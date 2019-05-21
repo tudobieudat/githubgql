@@ -1,17 +1,30 @@
-query ($orgName: String!, $repoName: String!, $numOfLastIssues: Int!) {
-  organization(login: $orgName) {
+query ($organization: String!, $repository: String!, $cursor: String) {
+  organization(login: $organization) {
     name
     url
-    repository(name: $repoName) {
+    repository(name: $repository) {
       name
       url
-      issues(last: $numOfLastIssues) {
+      issues(first: 5, after: $cursor, states: [OPEN]) {
         edges {
           node {
             id
             title
             url
+            reactions(last: 3) {
+              edges {
+                node {
+                  id
+                  content
+                }
+              }
+            }
           }
+        }
+        totalCount
+        pageInfo {
+          endCursor
+          hasNextPage
         }
       }
     }
@@ -19,37 +32,133 @@ query ($orgName: String!, $repoName: String!, $numOfLastIssues: Int!) {
 }
 
 { 
-  "orgName": "the-road-to-learn-react",
-  "repoName": "the-road-to-learn-react",
-  "numOfLastIssues": 2
+  "organization": "facebook",
+  "repository": "react"
 }
-
 
 {
   "data": {
     "organization": {
-      "name": "The Road to learn React",
-      "url": "https://github.com/the-road-to-learn-react",
+      "name": "Facebook",
+      "url": "https://github.com/facebook",
       "repository": {
-        "name": "the-road-to-learn-react",
-        "url": "https://github.com/the-road-to-learn-react/the-road-to-learn-react",
+        "name": "react",
+        "url": "https://github.com/facebook/react",
         "issues": {
           "edges": [
             {
               "node": {
-                "id": "MDU6SXNzdWU0Mzc5MTIwMzI=",
-                "title": "Link redirection is no longer correct.",
-                "url": "https://github.com/the-road-to-learn-react/the-road-to-learn-react/issues/198"
+                "id": "MDU6SXNzdWUxODM4MjI5Mg==",
+                "title": "Declarative API for installing global DOM event handlers",
+                "url": "https://github.com/facebook/react/issues/285",
+                "reactions": {
+                  "edges": [
+                    {
+                      "node": {
+                        "id": "MDg6UmVhY3Rpb24zMzIxNzI5MQ==",
+                        "content": "THUMBS_UP"
+                      }
+                    },
+                    {
+                      "node": {
+                        "id": "MDg6UmVhY3Rpb24zMzYwNzE2NA==",
+                        "content": "THUMBS_UP"
+                      }
+                    },
+                    {
+                      "node": {
+                        "id": "MDg6UmVhY3Rpb240MTkwMDM2MA==",
+                        "content": "THUMBS_UP"
+                      }
+                    }
+                  ]
+                }
               }
             },
             {
               "node": {
-                "id": "MDU6SXNzdWU0NDIyNzgzODI=",
-                "title": " access a state object ",
-                "url": "https://github.com/the-road-to-learn-react/the-road-to-learn-react/issues/202"
+                "id": "MDU6SXNzdWUyODA4NjgwOA==",
+                "title": "Provide a way to handle browser-autocompleted form values on controlled components",
+                "url": "https://github.com/facebook/react/issues/1159",
+                "reactions": {
+                  "edges": [
+                    {
+                      "node": {
+                        "id": "MDg6UmVhY3Rpb24zOTgxMTI1MA==",
+                        "content": "THUMBS_UP"
+                      }
+                    },
+                    {
+                      "node": {
+                        "id": "MDg6UmVhY3Rpb24zOTk5NzQ5NQ==",
+                        "content": "THUMBS_UP"
+                      }
+                    },
+                    {
+                      "node": {
+                        "id": "MDg6UmVhY3Rpb240MTY0MzExNw==",
+                        "content": "THUMBS_UP"
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "node": {
+                "id": "MDU6SXNzdWUyOTMwNTIwNA==",
+                "title": "iframe contents cause invariant violation",
+                "url": "https://github.com/facebook/react/issues/1253",
+                "reactions": {
+                  "edges": []
+                }
+              }
+            },
+            {
+              "node": {
+                "id": "MDU6SXNzdWUyOTMxMDg5MQ==",
+                "title": "React shouldn't bind wheel or touch events to the document. ",
+                "url": "https://github.com/facebook/react/issues/1254",
+                "reactions": {
+                  "edges": []
+                }
+              }
+            },
+            {
+              "node": {
+                "id": "MDU6SXNzdWUyOTQ2NzcxMA==",
+                "title": "Stop doing data-*, aria-*, start using dataSet",
+                "url": "https://github.com/facebook/react/issues/1259",
+                "reactions": {
+                  "edges": [
+                    {
+                      "node": {
+                        "id": "MDg6UmVhY3Rpb24zODgzNzU3Ng==",
+                        "content": "THUMBS_UP"
+                      }
+                    },
+                    {
+                      "node": {
+                        "id": "MDg6UmVhY3Rpb24zOTE0ODM2MQ==",
+                        "content": "EYES"
+                      }
+                    },
+                    {
+                      "node": {
+                        "id": "MDg6UmVhY3Rpb240MDY4MTg3OQ==",
+                        "content": "THUMBS_UP"
+                      }
+                    }
+                  ]
+                }
               }
             }
-          ]
+          ],
+          "totalCount": 505,
+          "pageInfo": {
+            "endCursor": "Y3Vyc29yOnYyOpHOAcGkPg==",
+            "hasNextPage": true
+          }
         }
       }
     }

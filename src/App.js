@@ -1,33 +1,46 @@
-import React, {Component} from 'react';
-import axios from 'axios'
-import './App.css';
-import Organization from './components/Organization';
+import React, { Component } from 'react';
+import axios from 'axios';
+import Organization from './components/Organization'
 
-const access_token = process.env.REACT_APP_GITHUB_PERSONAL_ACCESS_TOKEN;
+const TITLE = 'GitHub GraphQL API';
+
 const gitHubService = axios.create({
   baseURL: 'https://api.github.com/graphql',
   headers: {
-    Authorization: `bearer ${access_token}`
+    Authorization: `bearer ${
+      process.env.REACT_APP_GITHUB_PERSONAL_ACCESS_TOKEN
+    }`,
   },
 });
 
-const NUM_OF_LAST_ISSUES = 20;
-
-const GET_ISSUES_OF_REPOSITORY = `
-  query ($orgName: String!, $repoName: String!, $numOfLastIssues: Int!) {
-    organization(login: $orgName) {
+const ISSUES_OF_REPOSITORY_QUERY = `
+  query ($organization: String!, $repository: String!, $cursor: String) {
+    organization(login: $organization) {
       name
       url
-      repository(name: $repoName) {
+      repository(name: $repository) {
         name
         url
-        issues(last: $numOfLastIssues) {
+        issues(first: 5, after: $cursor, states: [OPEN]) {
           edges {
             node {
               id
               title
               url
+              reactions(last: 3) {
+                edges {
+                  node {
+                    id
+                    content
+                  }
+                }
+              }
             }
+          }
+          totalCount
+          pageInfo {
+            endCursor
+            hasNextPage
           }
         }
       }
@@ -35,73 +48,111 @@ const GET_ISSUES_OF_REPOSITORY = `
   }
 `;
 
-const getIssuesOfRepository = path => {
-  const [orgName, repoName] = path.split('/');
+const getIssuesOfRepository = (path, cursor) => {
+  const [organization, repository] = path.split('/');
 
   return gitHubService.post('', {
-    query: GET_ISSUES_OF_REPOSITORY,
-    variables: { orgName, repoName, numOfLastIssues: NUM_OF_LAST_ISSUES },
+    query: ISSUES_OF_REPOSITORY_QUERY,
+    variables: { organization, repository, cursor },
   });
 };
 
-const resolveIssuesQuery = queryResult => () => ({
-  organization: queryResult.data.data.organization,
-  errors: queryResult.data.errors,
-});
+const resolveIssuesQuery = (queryResult, cursor) => state => {
+  const { data, errors } = queryResult.data;
+
+  if (!cursor) {
+    return {
+      organization: data.organization,
+      errors,
+    };
+  }
+
+  const { edges: oldIssues } = state.organization.repository.issues;
+  const { edges: newIssues } = data.organization.repository.issues;
+  const updatedIssues = [...oldIssues, ...newIssues];
+
+  return {
+    organization: {
+      ...data.organization,
+      repository: {
+        ...data.organization.repository,
+        issues: {
+          ...data.organization.repository.issues,
+          edges: updatedIssues,
+        },
+      },
+    },
+    errors,
+  };
+};
 
 class App extends Component {
   state = {
-    path: 'the-road-to-learn-react/the-road-to-learn-react',
+    path: 'facebook/react',
     organization: null,
     errors: null,
   };
 
   componentDidMount() {
-    // fetch data
     this.onGitHubFetch(this.state.path);
   }
 
-  onChange = (event) => {
+  onChange = event => {
     this.setState({ path: event.target.value });
   };
 
-  onSubmit = (event) => {
+  onSubmit = event => {
+    this.onGitHubFetch(this.state.path);
+
     event.preventDefault();
-    this.onGitHubFetch(this.state.path);    
   };
 
-  onGitHubFetch = (path) => {
-    getIssuesOfRepository(path).then(queryResult =>
-      this.setState(resolveIssuesQuery(queryResult))
+  onGitHubFetch = (path, cursor) => {
+    getIssuesOfRepository(path, cursor).then(queryResult =>
+      this.setState(resolveIssuesQuery(queryResult, cursor)),
     );
   };
 
-  render(){
+  onMoreIssuesFetch = () => {
+    const {
+      endCursor,
+    } = this.state.organization.repository.issues.pageInfo;
+
+    this.onGitHubFetch(this.state.path, endCursor);
+  };
+
+  render() {
     const { path, organization, errors } = this.state;
 
     return (
-      <div className="App">
-        <h1>RAUXA CODING CHALLENGE</h1>
+      <div>
+        <h1>{TITLE}</h1>
+
         <form onSubmit={this.onSubmit}>
           <label htmlFor="url">
             Show open issues for https://github.com/
           </label>
-          <input 
-            id="url" 
-            type="text" 
+          <input
+            id="url"
+            type="text"
             value={path}
-            onChange={this.onChange} 
+            onChange={this.onChange}
             style={{ width: '300px' }}
           />
           <button type="submit">Search</button>
-          <hr />
-          {/* Here comes the result */}
-          {organization ? (
-            <Organization organization={organization} errors={errors} />
-          ):(
-            <p>No information yet...</p>
-          )}
         </form>
+
+        <hr />
+
+        {organization ? (
+          <Organization
+            organization={organization}
+            errors={errors}
+            onMoreIssuesFetch={this.onMoreIssuesFetch}
+          />
+        ) : (
+          <p>No information yet ...</p>
+        )}
       </div>
     );
   }
