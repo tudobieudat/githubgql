@@ -18,18 +18,18 @@ let styles = {
 };
 
 const Repository = ({ repository, onMoreIssuesFetch }) => (
-    <div id="reactionContainer" className="Repository">
+    <div>
       <p>
         <strong>In Repository:{' '}</strong>
         <a href={repository.url}>{repository.name}</a>
       </p>
   
-      <ul>
+      <ul className="tiles">
         {repository.issues.edges.map(issue => (
-          <li key={issue.node.id}>
+          <li className="tile fade-in" key={issue.node.id}>
             <a href={issue.node.url}>{issue.node.title}</a>
   
-            <ul id="reaction">
+            <ul>
               {issue.node.reactions.edges.map(reaction => (
                 <li key={reaction.node.id}><FontAwesomeIcon icon={faThumbsUp} /></li>
               ))}
@@ -41,7 +41,7 @@ const Repository = ({ repository, onMoreIssuesFetch }) => (
       <hr />
   
       {repository.issues.pageInfo.hasNextPage && (
-        <button onClick={onMoreIssuesFetch}>More</button>
+        <button className="load-more" onClick={onMoreIssuesFetch}>More</button>
       )}
     </div>
   );
