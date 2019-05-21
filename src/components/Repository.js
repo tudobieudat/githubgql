@@ -41,7 +41,7 @@ const Repository = ({ repository, onMoreIssuesFetch }) => (
       <hr />
   
       {repository.issues.pageInfo.hasNextPage && (
-        <button className="load-more" onClick={onMoreIssuesFetch}>More</button>
+        <button className="fetch-more" onClick={onMoreIssuesFetch}>there are more...</button>
       )}
     </div>
   );
