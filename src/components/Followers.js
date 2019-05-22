@@ -1,15 +1,17 @@
 import React from 'react'
+import './Repository.css'
 
 const Followers = ({ followers, onMoreIssuesFetch }) => (
-    <div>
+    <div id="repository">
       <h2>Followers: <span className="follower-count">{followers.totalCount}</span></h2>
       <ul className="tiles">
         {followers.edges.map(follower => (
           <li className="tile fade-in" key={follower.node.id}>
-            <a href={follower.node.url}>
-              <img src={follower.node.avatarUrl} alt="avatar" />
-              <span className="follower-name">{follower.node.name}</span>
-              <span className="follower-login">{follower.node.login}</span>
+            <a href={follower.node.url} target="_blank" rel='noreferrer noopener' key={follower.node.id}>
+            <div className="no-wrap">
+                <img src={follower.node.avatarUrl} alt="avatar" width="10%" />              
+                <span className="follower-name">{follower.node.name}</span>{'   '}{follower.node.login}
+              </div>              
             </a>
           </li>
         ))}

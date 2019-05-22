@@ -17,13 +17,11 @@ const User = ({
   
     return (
       <div>
-        <p>
-          <a href={user.url}>
-            <img src={user.avatarUrl} alt="avatar" />
-            <p className="user-name">{user.name}</p>
-            <p className="user-login">{user.login}</p>
-          </a>
-        </p>
+        <a href={user.url} key={user.login}>
+          <img src={user.avatarUrl} alt="avatar" />
+          <h4 className="user-name">{user.name}</h4>
+          <span className="user-login">{user.login}</span>
+        </a>
         <Followers
           followers={user.followers}
           onMoreIssuesFetch={onMoreIssuesFetch}

@@ -41,11 +41,12 @@ h2 {
 
 a:link {
     color: gray;
+    text-decoration: none;
 }
   
 /* visited link */
 a:visited {
-    color: #222222;
+    color: #dddddd;
 }
 
 a:hover {
@@ -66,7 +67,7 @@ a:hover {
     display: flex;
     flex-direction: column;
     position: relative;
-    min-width: 300px;
+    min-width: 380px;
     margin: 1em auto;
     border-radius: 1em;
 }
@@ -116,12 +117,27 @@ ul {
 }
 
 .tiles .tile li {
-    display: inline;
-    padding-right: 10px;
+    display: inline-block;
+    padding-right: 10px;    
 }
 
 .tile.fade-in {    
     border: dashed #c34d41 1px;
     border-radius: 0.3em;
     padding: 0.5em;       
+}
+
+.follower-name {
+  font-weight: bold;
+}
+
+#repository img {
+  border: solid #cccccc 2px;
+  border-radius: 0.3em;
+  margin-right: 0.6em;
+}
+y
+.no-wrap {
+  white-space: pre-wrap;
+  overflow: hidden;
 }

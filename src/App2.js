@@ -16,10 +16,11 @@ const gitHubService = axios.create({
 const USER_FOLLOWERS_QUERY = `
 query ($login: String!, $cursor: String) {
     user(login: $login) {
+      login
       name
       avatarUrl
       url
-      followers(first: 3, after: $cursor) {
+      followers(first: 10, after: $cursor) {
         totalCount
         edges {
           node {
@@ -27,6 +28,7 @@ query ($login: String!, $cursor: String) {
             name
             avatarUrl
             company
+            url
           }
         }
         pageInfo {
@@ -39,7 +41,6 @@ query ($login: String!, $cursor: String) {
 `;
 
 const getIssuesOfRepository = (login, cursor) => {
-  console.log(`login: ${login}`);
   return gitHubService.post('', {
     query: USER_FOLLOWERS_QUERY,
     variables: { login, cursor },
@@ -56,10 +57,9 @@ const resolveIssuesQuery = (queryResult, cursor) => state => {
     };
   }
 
+  // merging old followers with newly fetched followers
   const { edges: oldFollowers } = state.user.followers;
-  console.log(oldFollowers);
   const { edges: newFollowers } = data.user.followers;
-  console.log(oldFollowers);
   const updatedFollowers = [...oldFollowers, ...newFollowers];
 
   return {
@@ -116,8 +116,6 @@ class App extends Component {
 
   render() {
     const { login, user, errors } = this.state;
-    console.log(login);
-    console.log(user);
     return (
       <div>
         <h1>{APP_TITLE}</h1>
