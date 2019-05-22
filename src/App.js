@@ -50,10 +50,13 @@ const ISSUES_OF_REPOSITORY_QUERY = `
 
 const getIssuesOfRepository = (path, cursor) => {
   const [organization, repository] = path.split('/');
+  const params = { organization: organization, repository: repository }
+  console.log(`cursor: ${cursor}`);
+  console.log(params);
 
   return gitHubService.post('', {
     query: ISSUES_OF_REPOSITORY_QUERY,
-    variables: { organization, repository, cursor },
+    variables: params,
   });
 };
 
