@@ -21,7 +21,7 @@ The UX/UI is totally up to you. If you like, get creative and add additional fea
 
 * I started this app using Create React App (CRA). CRA is an officially supported way to create SPAs and offers a modern build setup with zero configuration. You don't need to install or configure tools like Webpack, or Babel. They are configured and hidden so that developers can focus on the code.
 
-The boilerplate code generated are very simple, below are 3 main files: index.html, index.js, App.js:
+The boilerplate code generated are very simple, but I simplified it to become minimal to start with, below are 3 main files at their initial state:
 
 ```
 // index.html
@@ -58,7 +58,7 @@ function App() {
 
 export default App;
 ```
-Of course, it also contains the package.json to list all project dependencies.
+Of course, it also contains the package.json to list all project dependencies. It can not be simpler.
 
 To run the app, all you need to do is change to the app directory then type: 'npm run':
 ```
