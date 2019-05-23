@@ -17,7 +17,7 @@ The UX/UI is totally up to you. If you like, get creative and add additional fea
 
 * This is a single-page application (SPA) using React.
 
-* It uses the GitHub GraphQL API. It offers the ability to define precisely the data you want--no more, no less--is a powerful advantage over the REST API endpoints. GraphQL lets you replace multiple REST request with a single call to fetch the data you specify.
+* This prototype uses the GitHub GraphQL API. GraphQL offers the ability to define precisely the data you want--no more, no less--is a powerful advantage over the REST API endpoints. GraphQL lets you replace multiple REST request with a single call to fetch the data you specify.
 
 
 TLDR
