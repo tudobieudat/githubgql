@@ -77,7 +77,7 @@ Notes:
 ReactDOM.render(<App />, document.getElementById(‘root’));
 ```
 
-* App.js is the top-level component or root component. 
+* App.js is the top-level component or root component. React apps are component-based architecture and it must has a single root component.
 
 ### TLDR
 There are many open-source platforms for building SPAs, The most popular are React, Angular and Vue. They are all good frameworks or library. That's made choosing technical stack are sometimes becomes a tedious task. There are pros and cons for each platform or library. I just prefer React because it is just a JavaScript library, so it offers a lot of freedom for developers. Learn React once, you can write anywhere--iOS, Android, VR/AR apps, smart TV...
