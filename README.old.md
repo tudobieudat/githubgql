@@ -24,7 +24,7 @@ The UX/UI is totally up to you. If you like, get creative and add additional fea
 The boilerplate code generated are very simple, but I simplified it to become minimal to start with, below are 3 main files at their initial state:
 
 ```
-// index.html
+<!--index.html-->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -58,10 +58,11 @@ function App() {
 
 export default App;
 ```
-Of course, it also contains the package.json to list all project dependencies. It can not be simpler.
+Of course, it also contains the package.json to list all project dependencies.
 
-To run the app, all you need to do is change to the app directory then type: 'npm run':
+To run the app, all you need to do is:
 ```
+$ git clone https://github.com/harryvu/rauxa-cc-fe.git
 $ cd rauxa-cc-fe
 $ npm run
 ```
