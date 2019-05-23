@@ -20,10 +20,10 @@ The UX/UI is totally up to you. If you like, get creative and add additional fea
 * This prototype uses the GitHub GraphQL API. GraphQL offers the ability to define precisely the data you want--no more, no less--is a powerful advantage over the REST API endpoints. GraphQL lets you replace multiple REST request with a single call to fetch the data you specify.
 
 
-TLDR
-CRA is an officially supported way to create SPAs and it offers a modern build setup with zero configuration.
+### TLDR
+There are many open-source platforms for building SPAs, The most popular are React, Angular and Vue. Choosing a technical stack are sometimes becomes a tedious task. There are pros and cons for each platform or library. I just prefer React because it is just a JavaScript library, so it offers a lot of freedom for the developers. Learn React once, you can write anywhere.
 
-There are many open-source platforms for building SPAs, The most popular are React, Angular and Vue. Choosing a technical stack are sometimes becomes a tedious task. There are pros and cons for each platform or library. I just prefer React because it is just a JavaScript library, so it offers a lot of freedom for the developers. Learn React once, you can anywhere
+This prototype uses Create React App (CRA). It is an officially supported way to create SPAs and offers a modern build setup with zero configuration.
 
 * Simplicity
 React is just a JavaScript library. It's not a framework, there is a very small API to learn, just a few functions.
