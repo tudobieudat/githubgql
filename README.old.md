@@ -68,7 +68,7 @@ $ npm run
 ```
 
 Notes:
-* When the application starts index.html is the first page that is loaded. This file has a root division which act as a placeholder for all application components are loaded into it.
+* When the application starts, the index.html is the first page that is loaded. This file has a root division which act as a placeholder for all application components are loaded into it.
 ```
 <div id="root"></div>
 ```
