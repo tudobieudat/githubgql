@@ -101,11 +101,6 @@ class App extends Component {
     );
   };
 
-  // onGitHubFetch = () => {
-  //   gitHubService.post('',{ query: USER_FOLLOWERS_QUERY, variables: { login:"holman" } })
-  //   .then(result => console.log(result))
-  // }
-
   onMoreIssuesFetch = () => {
     const {
       endCursor,
@@ -119,7 +114,6 @@ class App extends Component {
     return (
       <div>
         <h1>{APP_TITLE}</h1>
-
         <form onSubmit={this.onSubmit}>
           <label htmlFor="login">
             Enter user's login name:
