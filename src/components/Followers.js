@@ -9,7 +9,7 @@ const Followers = ({ followers, onMoreIssuesFetch }) => (
             <a href={follower.node.url} target="_blank" rel='noreferrer noopener' key={follower.node.id}>
             <div className="no-wrap">
                 <img src={follower.node.avatarUrl} alt="avatar" width="10%" />              
-                <span className="follower-name">{follower.node.name}</span>{'   '}{follower.node.login}
+                <span className="follower-name">{follower.node.name}</span>{' '}{follower.node.login}
               </div>              
             </a>
           </li>
