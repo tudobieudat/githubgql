@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "513b0bf6e3e932b00775cd88b38c03fe",
+    "revision": "93f4613f63ffd2adacdfe70a7e166067",
     "url": "/githubgql/index.html"
   },
   {
-    "revision": "326ce00cd0d558771448",
+    "revision": "d9e6fcf3297aef3355da",
     "url": "/githubgql/static/css/main.3d8f41c3.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/githubgql/static/js/2.04b14f19.chunk.js"
   },
   {
-    "revision": "326ce00cd0d558771448",
-    "url": "/githubgql/static/js/main.8b623b50.chunk.js"
+    "revision": "d9e6fcf3297aef3355da",
+    "url": "/githubgql/static/js/main.03d69889.chunk.js"
   },
   {
     "revision": "20f59da78852c6225f25",
