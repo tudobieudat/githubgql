@@ -17,11 +17,11 @@ The UX/UI is totally up to you. If you like, get creative and add additional fea
 
 * This is a single-page application (SPA) using React.
 
-* This prototype uses the GitHub GraphQL API. GraphQL offers the ability to define precisely the data you want--no more, no less--is a powerful advantage over the REST API endpoints. GraphQL lets you replace multiple REST request with a single call to fetch the data you specify.
+* This prototype uses the GitHub GraphQL API. GraphQL offers the ability to define precisely the data you want--no more, no less--is a powerful advantage over the REST API endpoints. GraphQL lets you replace multiple REST requests with a single call to fetch the data you specify.
 
-* This app has started using Create React App (CRA). CRA is an officially supported way to create SPAs and offers a modern build setup with zero configuration. You don't need to install or configure tools like Webpack, or Babel. They are configured and hidden so that developers can focus on the code.
+* I started this app using Create React App (CRA). CRA is an officially supported way to create SPAs and offers a modern build setup with zero configuration. You don't need to install or configure tools like Webpack, or Babel. They are configured and hidden so that developers can focus on the code.
 
-The boilerplate code generated are very simple, below are three main files: index.html, index.js, and App.js:
+The boilerplate code generated are very simple, below are 3 main files: index.html, index.js, App.js:
 
 ```
 // index.html
@@ -58,6 +58,8 @@ function App() {
 
 export default App;
 ```
+Of course, it also contains the package.json to list all project dependencies.
+
 To run the app, all you need to do is change to the app directory then type: 'npm run':
 ```
 $ cd rauxa-cc-fe
@@ -66,6 +68,9 @@ $ npm run
 
 Notes:
 * When the application starts index.html is the first page that is loaded. This file has a root division which act as a placeholder for all application components are loaded into it.
+```
+<div id="root"></div>
+```
 
 * index.js is the entry point of the app. It has one important line of code to load the top-level App component into the root division.
 ```
