@@ -65,11 +65,17 @@ $ npm run
 ```
 
 Notes:
-* index.js is the entry point of the app
-* App.js is the top-level component
+* When the application starts index.html is the first page that is loaded. This file has a root division which act as a placeholder for all application components are loaded into it.
+
+* index.js is the entry point of the app. It has one important line of code to load the top-level App component into the root division.
+```
+ReactDOM.render(<App />, document.getElementById(‘root’));
+```
+
+* App.js is the top-level component or root component. 
 
 ### TLDR
-There are many open-source platforms for building SPAs, The most popular are React, Angular and Vue. Choosing a technical stack are sometimes becomes a tedious task. There are pros and cons for each platform or library. I just prefer React because it is just a JavaScript library, so it offers a lot of freedom for the developers. Learn React once, you can write anywhere.
+There are many open-source platforms for building SPAs, The most popular are React, Angular and Vue. They are all good frameworks or library. That's made choosing technical stack are sometimes becomes a tedious task. There are pros and cons for each platform or library. I just prefer React because it is just a JavaScript library, so it offers a lot of freedom for developers. Learn React once, you can write anywhere--iOS, Android, VR/AR apps, smart TV...
 
 This prototype uses Create React App (CRA). It is an officially supported way to create SPAs and offers a modern build setup with zero configuration.
 
