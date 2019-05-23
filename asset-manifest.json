@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/githubgql/index.html/static/css/main.3d8f41c3.chunk.css",
-    "main.js": "/githubgql/index.html/static/js/main.03cb3462.chunk.js",
-    "main.js.map": "/githubgql/index.html/static/js/main.03cb3462.chunk.js.map",
-    "runtime~main.js": "/githubgql/index.html/static/js/runtime~main.a70708a4.js",
-    "runtime~main.js.map": "/githubgql/index.html/static/js/runtime~main.a70708a4.js.map",
-    "static/js/2.04b14f19.chunk.js": "/githubgql/index.html/static/js/2.04b14f19.chunk.js",
-    "static/js/2.04b14f19.chunk.js.map": "/githubgql/index.html/static/js/2.04b14f19.chunk.js.map",
-    "index.html": "/githubgql/index.html/index.html",
-    "precache-manifest.9d2e5a67f823fe1eff5e8570f678bb38.js": "/githubgql/index.html/precache-manifest.9d2e5a67f823fe1eff5e8570f678bb38.js",
-    "service-worker.js": "/githubgql/index.html/service-worker.js",
-    "static/css/main.3d8f41c3.chunk.css.map": "/githubgql/index.html/static/css/main.3d8f41c3.chunk.css.map"
+    "main.css": "/githubgql/static/css/main.3d8f41c3.chunk.css",
+    "main.js": "/githubgql/static/js/main.03cb3462.chunk.js",
+    "main.js.map": "/githubgql/static/js/main.03cb3462.chunk.js.map",
+    "runtime~main.js": "/githubgql/static/js/runtime~main.bd28b822.js",
+    "runtime~main.js.map": "/githubgql/static/js/runtime~main.bd28b822.js.map",
+    "static/js/2.04b14f19.chunk.js": "/githubgql/static/js/2.04b14f19.chunk.js",
+    "static/js/2.04b14f19.chunk.js.map": "/githubgql/static/js/2.04b14f19.chunk.js.map",
+    "index.html": "/githubgql/index.html",
+    "precache-manifest.045417b4876df27b0042519a4156847b.js": "/githubgql/precache-manifest.045417b4876df27b0042519a4156847b.js",
+    "service-worker.js": "/githubgql/service-worker.js",
+    "static/css/main.3d8f41c3.chunk.css.map": "/githubgql/static/css/main.3d8f41c3.chunk.css.map"
   }
 }
