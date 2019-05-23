@@ -12,11 +12,12 @@ Information on the GitHub API is available here: [GitHub API](https://developer.
 
 The UX/UI is totally up to you. If you like, get creative and add additional features a user might find useful!
 
-## Reasoning behind your technical choices, including architectural trade-offs you might have made, anything you left out, or what you might do differently if you were to spend additional time on the project.
+## Techical choices
+(Reasoning behind your technical choices, including architectural trade-offs you might have made, anything you left out, or what you might do differently if you were to spend additional time on the project.)
 
-This is a single-page application (SPA) using React.
+* This is a single-page application (SPA) using React.
 
-This app uses the GitHub GraphQL API. It offers the ability to define precisely the data you want--no more, no less--is a powerful advantage over the REST API endpoints. GraphQL lets you replace multiple REST request with a single call to fetch the data you specify.
+* It uses the GitHub GraphQL API. It offers the ability to define precisely the data you want--no more, no less--is a powerful advantage over the REST API endpoints. GraphQL lets you replace multiple REST request with a single call to fetch the data you specify.
 
 
 TLDR
