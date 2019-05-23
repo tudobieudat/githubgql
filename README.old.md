@@ -1,10 +1,10 @@
 # FRONT-END CODING CHALLENGE
 
-## THe Challenge
+## The Challenge
 
 Prototype the following project:
 
-GitHub Followers
+### GitHub Followers
 
 Create a service that allows for a user to search for a GitHub username. On a successful search return, display the user's GitHub handle, follower count, and a list of the user's followers (just the avatar is fine). Since some users (e.g. mrdoob, holman, etc.) have many thousands of followers, GitHub only returns a portion of the followers with each request. Create a "load more" button that, when clicked, fetches the next payload of followers. This button should persist until there are no more pages of followers to fetch.
 
@@ -12,8 +12,32 @@ Information on the GitHub API is available here: [GitHub API](https://developer.
 
 The UX/UI is totally up to you. If you like, get creative and add additional features a user might find useful!
 
-
 ## Reasoning behind your technical choices, including architectural trade-offs you might have made, anything you left out, or what you might do differently if you were to spend additional time on the project.
+
+This is a single-page application (SPA) using React.
+
+This app uses the GitHub GraphQL API. It offers the ability to define precisely the data you want--no more, no less--is a powerful advantage over the REST API endpoints. GraphQL lets you replace multiple REST request with a single call to fetch the data you specify.
+
+
+TLDR
+CRA is an officially supported way to create SPAs and it offers a modern build setup with zero configuration.
+
+There are many open-source platforms for building SPAs, The most popular are React, Angular and Vue. Choosing a technical stack are sometimes becomes a tedious task. There are pros and cons for each platform or library. I just prefer React because it is just a JavaScript library, so it offers a lot of freedom for the developers. Learn React once, you can anywhere
+
+* Simplicity
+React is just a JavaScript library. It's not a framework, there is a very small API to learn, just a few functions.
+
+* Declarative
+React introduces JSX that allows developers to insert HTML in JavaScript.
+JSX allows the declarative description of the interface by combining the ease of writing views with the power of JavaScript.
+
+Declarative views make your code more predictable and easier to debug.
+
+* Easy Integration
+React doesn't make assumptions about the rest of your technology stack, so you can develope new features in React without rewriting existing code (for other parts).
+
+
+
 
 ## Link to other code you're particularly proud of.
 
