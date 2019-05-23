@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/githubgql/static/css/main.3d8f41c3.chunk.css",
-    "main.js": "/githubgql/static/js/main.90c8e8a9.chunk.js",
-    "main.js.map": "/githubgql/static/js/main.90c8e8a9.chunk.js.map",
+    "main.js": "/githubgql/static/js/main.a8b1d743.chunk.js",
+    "main.js.map": "/githubgql/static/js/main.a8b1d743.chunk.js.map",
     "runtime~main.js": "/githubgql/static/js/runtime~main.bd28b822.js",
     "runtime~main.js.map": "/githubgql/static/js/runtime~main.bd28b822.js.map",
     "static/js/2.04b14f19.chunk.js": "/githubgql/static/js/2.04b14f19.chunk.js",
     "static/js/2.04b14f19.chunk.js.map": "/githubgql/static/js/2.04b14f19.chunk.js.map",
     "index.html": "/githubgql/index.html",
-    "precache-manifest.b994bdc0264ec8a6897f804f8c7e1104.js": "/githubgql/precache-manifest.b994bdc0264ec8a6897f804f8c7e1104.js",
+    "precache-manifest.89cc7ce4417ac5198a18d85d5dd4da5c.js": "/githubgql/precache-manifest.89cc7ce4417ac5198a18d85d5dd4da5c.js",
     "service-worker.js": "/githubgql/service-worker.js",
     "static/css/main.3d8f41c3.chunk.css.map": "/githubgql/static/css/main.3d8f41c3.chunk.css.map"
   }
