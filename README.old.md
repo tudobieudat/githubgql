@@ -24,6 +24,28 @@ The UX/UI is totally up to you. If you like, get creative and add additional fea
 The initial of the main (App) component is very simple, as shown below:
 
 ```
+// index.html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>React App</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+  </body>
+</html>
+
+//index.js
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+
+ReactDOM.render(<App />, document.getElementById('root'));
+
+// App.js
 import React from 'react';
 import './App.css';
 
