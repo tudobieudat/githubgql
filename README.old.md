@@ -58,22 +58,22 @@ function App() {
 
 export default App;
 ```
-Of course, it also contains the package.json to list all project dependencies.
+It also contains the package.json to list all project dependencies.
 
 To run the app, all you need to do is:
 ```
 $ git clone https://github.com/harryvu/rauxa-cc-fe.git
 $ cd rauxa-cc-fe
-$ npm run
+$ npm start
 ```
 
 Notes:
-* When the application starts, the index.html is the first page that is loaded. This file has a root division which act as a placeholder for all application components are loaded into it.
+* When the application starts, the index.html is the first page loaded. This file has a root division which act as a placeholder for all application components are loaded into it.
 ```
 <div id="root"></div>
 ```
 
-* index.js is the entry point of the app. It has one important line of code to load the top-level App component into the root division.
+* index.js is the entry point of the app. It has one important line of code to load the top-level component into the root division.
 ```
 ReactDOM.render(<App />, document.getElementById(‘root’));
 ```
