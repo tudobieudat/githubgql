@@ -21,7 +21,7 @@ The UX/UI is totally up to you. If you like, get creative and add additional fea
 
 * This app has started using Create React App (CRA). CRA is an officially supported way to create SPAs and offers a modern build setup with zero configuration. You don't need to install or configure tools like Webpack, or Babel. They are configured and hidden so that developers can focus on the code.
 
-The initial of the main (App) component is very simple, as shown below:
+The boilerplate code generated are very simple, below are three main files: index.html, index.js, and App.js:
 
 ```
 // index.html
@@ -36,8 +36,7 @@ The initial of the main (App) component is very simple, as shown below:
   </body>
 </html>
 
-//index.js
-
+// index.js
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
@@ -59,6 +58,15 @@ function App() {
 
 export default App;
 ```
+To run the app, all you need to do is change to the app directory then type: 'npm run':
+```
+$ cd rauxa-cc-fe
+$ npm run
+```
+
+Notes:
+* index.js is the entry point of the app
+* App.js is the top-level component
 
 ### TLDR
 There are many open-source platforms for building SPAs, The most popular are React, Angular and Vue. Choosing a technical stack are sometimes becomes a tedious task. There are pros and cons for each platform or library. I just prefer React because it is just a JavaScript library, so it offers a lot of freedom for the developers. Learn React once, you can write anywhere.

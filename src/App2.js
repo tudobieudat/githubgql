@@ -23,7 +23,7 @@ query ($login: String!, $cursor: String) {
       followers(first: 10, after: $cursor) {
         totalCount
         edges {
-          node {
+          node {            
             login
             name
             avatarUrl
